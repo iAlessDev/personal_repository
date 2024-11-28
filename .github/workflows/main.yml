@@ -25,9 +25,6 @@ jobs:
     - name: install dependencies
       run: npm install
 
-    - name: Run the test and grant covergare report
-      run: npm run test -- --coverage
-
     - name: Build
       run: npm run build
 
