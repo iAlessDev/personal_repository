@@ -7,11 +7,51 @@ on:
   workflow_dispatch:
 
 jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@main
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: install dependencies
+      run: npm install
+
+    - name: Run the test and grant covergare report
+      run: npm run test -- --coverage
+
+    - name: Build
+      run: npm run build
+
+    - name: save artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifact
+        path: build/
+  
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - uses: jakejarvis/s3-sync-action@v0.5.1
+
+    - name: Checkout repository
+      uses: actions/checkout@main
+
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: build-artifact
+
+    - name: Deploy to S3
+      uses: jakejarvis/s3-sync-action@v0.5.1
       with:
         args: --follow-symlinks --delete --exclude '.git*/*'
       env:
