@@ -83,19 +83,19 @@ const [hover, setHover] = useState(false);
                 <Technologies />
                 
             </Marquee>
-            <div className="flex space-x-8 w-full py-16 bg-[#E5E5E5] items-start">
-                <div className="flex justify-start space-x-3 w-[45%] border-[#be6700] border-2 py-5 rounded-2xl ml-12 bg-[#f6f5de] shadow-2xl h-auto">
-                    <img src="paulfloresdev.JPEG" alt="Paul Flores" className="h-40 mt-3 rounded-full border-[#FF6F61] border-2 ml-5"/>
+            <div className="flex flex-col md:flex-row md:space-x-8 w-full py-5 md:py-16 bg-[#E5E5E5] items-start">
+                <div className="flex flex-col md:flex-row items-center md:items-start space-x-3 md:w-[45%] border-[#be6700] border-2 py-5 rounded-2xl mx-5 mt-5 mb-16 md:ml-12 bg-[#f6f5de] shadow-2xl h-auto">
+                    <img src="paulfloresdev.JPEG" alt="Paul Flores" className="w-36 md:h-40 mt-3 rounded-full border-[#FF6F61] border-2 m-5 md:ml-5"/>
                     <div className="flex flex-col mr-5">
-                        <h1 className="text-5xl font-oswald">
+                        <h1 className="text-5xl font-oswald text-center md:text-left">
                             Hey there!
                         </h1>
-                        <p className="text-2xl mt-5 w-full text-[#D1D1D1} font-funnel">
+                        <p className="text-2xl mt-5 w-full text-[#D1D1D1} font-funnel mb-5 md:mb-0 ">
                             I'm Paul Flores, a content creator, speaker and developer specialized in Web and IOS applications
                         </p>
                     </div>
                 </div>
-                    <div className="flex flex-col h-auto w-[45%] border-transparent rounded-2xl bg-white shadow-lg">
+                    <div className="flex flex-col mb-16 mx-7 md:mx-0 h-auto w-[85%] md:w-[45%] border-transparent rounded-2xl bg-white shadow-lg">
                         <div className="flex justify-center space-x-4 w-full p-4">
                             <button 
                                 className="flex flex-col items-center w-1/2 py-3 text-lg font-light text-gray-800 bg-white  rounded-md  hover:scale-125 focus:ring-2 transition-all "
@@ -140,7 +140,7 @@ const [hover, setHover] = useState(false);
                                         <strong> Java, PHP, Python, C, and Bash.</strong>
                                     </p>
                                     <p className="text-gray-600 mt-2">
-                                        I manage databases like <strong>MySQL, MariaDB, PostgreSQL, OracleSQL, and MongoDB,</strong>
+                                        I manage databases like <strong>MySQL, MariaDB, PostgreSQL, OracleSQL, and MongoDB, </strong>
                                         and provide cloud hosting with <strong>AWS </strong> services such as <strong>S3, CloudFront, and EC2. </strong>
                                     </p>
                                     <p className="text-gray-600 mt-2">
