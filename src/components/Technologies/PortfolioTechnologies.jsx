@@ -3,7 +3,7 @@ import React from "react";
 
 function PortfolioTechnologies() {
     return (
-        <div className="flex items-center justify-center space-x-4 font-funnel py-5 bg-[#E5E5E5] text-[#1E90FF]">
+        <div className="flex items-center justify-center space-x-4 font-funnel pt-5 bg-[#E5E5E5] text-[#1065bb]">
             <div className="flex space-x-5 ">
                 <h1 className="font-bold ml-4">
                     Databases:
@@ -55,6 +55,7 @@ function PortfolioTechnologies() {
                 <p>Git</p>
                 <p>Docker</p>
                 <p>Kubernates</p>
+                <p>Swift</p>
             </div>
         </div>
     )
