@@ -8,7 +8,6 @@ import { ReactComponent as Computer } from '../computer.svg'
 function Home() {
 
 const [activeTab, setActiveTab] = useState("IOS");
-const [hover, setHover] = useState(false);
 
     return (
         <div>
