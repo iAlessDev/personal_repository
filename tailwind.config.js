@@ -7,7 +7,8 @@ export default {
 			fontFamily: {
 				space: ['Space Mono', 'monospace'],
 				funnel: ['Funnel Sans', 'sans-serif'],
-				oswald: ['Oswald', 'sans-serif']
+				oswald: ['Oswald', 'sans-serif'],
+				Lexand: ['Lexend Peta', 'sans-serif'],
 			},
 			height: {
 			  'custom': '52px', // Ajusta este valor según lo que consideres un tamaño medio (13 * 4px = 52px)
