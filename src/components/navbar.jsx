@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll"
 
 function Navbar() {
 
@@ -11,19 +12,21 @@ function Navbar() {
           className="flex flex-row items-center space-x-4 md:space-x-8 w-auto justify-center"
         >
           <li>
-            <a
-              href="/"
-              className="text-white hover:text-blue-300 transition duration-300"
+            <Link
+              to="home"
+              className="text-white hover:text-blue-300 transition duration-300 cursor-pointer"
+              smooth={true}
+              duration={500}
             >
-              Inicio
-            </a>
+              Home
+            </Link>
           </li>
           <li>
             <a
               href="/portfolio"
               className="text-white hover:text-blue-300 transition duration-300"
             >
-              Portafolio
+              Portfolio
             </a>
           </li>
           <li>
@@ -35,12 +38,14 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a
-              href="/contact"
-              className="text-white hover:text-blue-300 transition duration-300" 
+            <Link
+              to="contact"
+              className="text-white hover:text-blue-300 transition duration-300 cursor-pointer"
+              smooth={true}
+              duration={500}
             >
-              Contacto
-            </a>
+              Contact
+            </Link>
           </li>
         </ul>
       </div>
