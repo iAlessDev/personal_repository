@@ -47,7 +47,7 @@ function Home() {
     };
 
     return (
-        <div>
+        <div id="home">
             <div>
                 <img src="background.png" alt="blue and white colors" className="w-full h-screen object-cover"/>
                 
@@ -104,7 +104,7 @@ function Home() {
             </div>
 
             <div className="bg-[#E5E5E5] w-full py-5 text-[#1065bb] border-gray-500">
-                <h2 className="text-center text-2xl font-funnel">
+                <h2 className="text-center text-1xl md:text-2xl font-funnel">
                     IOS | WEB 
                 </h2>
             </div>
@@ -113,7 +113,7 @@ function Home() {
                 <div className="w-[30%] h-0.5 mx-12 bg-gradient-to-r from-[#5e8ba0] via-[#a8ff05] to-[#32CD32] inline-block text-transparent text-1xl sm:text-2xl font-bold"></div>
             </div>
 
-            <Marquee className="text-2xl"
+            <Marquee className="text-1xl md:text-2xl "
                 pauseOnHover={true}
                 direction="left"
             >
