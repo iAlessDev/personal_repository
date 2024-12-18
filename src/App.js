@@ -3,24 +3,25 @@ import Portfolio from './components/portfolio.jsx';
 import Home from './components/home.jsx';
 import Navbar from './components/navbar.jsx';
 import Blog from './components/blog.jsx';
+import Projects from "./components/projects.jsx";
 import Contact from './components/contact.jsx';
 
 function App() {
   return (
   <Router>  
       <div className="App">
-        <Navbar />
           <Routes>
             <Route 
               path="/" 
               element={
                 <div>
+                  <Navbar />
                   <Home />
+                  <Portfolio />
                   <Contact />
                 </div>
               } />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/projects" element={<Projects />} />
           </Routes>
     </div>
   </Router>
