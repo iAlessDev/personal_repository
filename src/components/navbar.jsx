@@ -22,20 +22,24 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <a
-              href="/portfolio"
-              className="text-white hover:text-blue-300 transition duration-300"
+            <Link
+              to="portfolio"
+              className="text-white hover:text-blue-300 transition duration-300 cursor-pointer"
+              smooth={true}
+              duration={500}
             >
               Portfolio
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/blog"
-              className="text-white hover:text-blue-300 transition duration-300"
+            <Link
+              to=""
+              className="text-white hover:text-blue-300 transition duration-300 cursor-pointer"
+              smooth={true}
+              duration={500}
             >
               Blog
-            </a>
+            </Link>
           </li>
           <li>
             <Link
