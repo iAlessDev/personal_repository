@@ -63,7 +63,7 @@ function Contact() {
     
 
     return (
-        <div id="contact" className="w-full px-12 md:px-28 bg-[#E5E5E5]">
+        <div id="contact" className="w-full px-12 md:px-28 bg-[#E5E5E5] pt-36 ">
 
             <h1 className="text-3xl md:text-4xl font-oswald text-center bg-[#E5E5E5]">
                 Lets Talk About Your Project
