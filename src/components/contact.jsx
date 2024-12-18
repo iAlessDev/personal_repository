@@ -1,18 +1,66 @@
-import React, { useState } from "react";
-
+import React, { useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
+import { useForm  } from "react-hook-form";
 
 function Contact() {
 
-    const [selectedProjectOption, setSelectedProjectOption] = useState('ios');
-    const [selectedModalityOption, setSelectedModalityOption] = useState('freelance');
-      
-    const handleChange = (e) => {
-        setSelectedProjectOption(e.target.value);
-    };
+    const form = useRef();
 
-    const handleChangeModality = (e) => {
-        setSelectedModalityOption(e.target.value);
-    }
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();   
+
+    let isSending = false; 
+
+    const [formdata, setFormdata] = useState({
+        name: '',
+        email: '',
+        company: '',
+        message: '',
+    });
+
+
+    const handleChangeForm = (e) => {
+        const { name, value } = e.target;
+        setFormdata({ ...formdata, [name]: value });
+    };
+      
+    const sendEmail = async (data) => {
+        if (isSending) return; 
+        isSending = true; 
+    
+        try {
+            const result = await emailjs.sendForm(
+                "service_h6tulwe", 
+                "template_i5xdd6u", 
+                form.current,
+                "dIaKCgy1URkI1gEUK"
+            );
+    
+            console.log(result);
+            alert("Mensaje enviado correctamente.");
+    
+            // Reinicia el formulario en react-hook-form
+            setFormdata({
+                name: '',
+                email: '',
+                company: '',
+                message: '',
+            });
+
+            form.current.reset(); // Reinicia los valores en el DOM del formulario.
+    
+        } catch (error) {
+            console.error(error);
+            alert("Hubo un error al enviar el mensaje.");
+        } finally {
+            isSending = false; // Desbloqueamos el envío
+        }
+    };
+    
 
     return (
         <div id="contact" className="w-full px-12 md:px-28 bg-[#E5E5E5]">
@@ -32,23 +80,102 @@ function Contact() {
 
                 <div className="text-1xl w-full md:w-[80%]">
 
-                    <form className="flex flex-col space-y-4">
+                <form className="flex flex-col space-y-4" onSubmit={handleSubmit(sendEmail)} ref={form}>
+                    <div flex flex-col>
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                onChange={handleChangeForm}
+                                {...register("name", { 
+                                    required: "Name is required",
+                                    validate: {
+                                        minLenght: (value) => value.length > 3 || "This field must be at least 3 characters",
+                                        matchPattern: (value) => /^[a-zA-Z\s]*$/.test(value) || "This field must be a valid name",
+                                    },
+                                })}
+                                
+                                name="name"
+                                id="name"
+                                className="p-2 border border-gray-300 rounded-2xl w-full"
+                            />
 
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            className="p-2 border border-gray-300 rounded-2xl"
-                        />
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            className="p-2 border border-gray-300 rounded-2xl"
-                        />
-                        <textarea
-                            placeholder="Message"
-                            className="p-2 border border-gray-300 rounded-2xl"
-                            rows="4"
-                        ></textarea>
+                            <br />
+
+                            {errors.name?.message && (
+                                <span className="text-red-500">{errors.name.message}</span>
+                            )}
+
+
+                        </div>
+
+                        <div flex flex-col>
+                           <input
+                                type="text"
+                                placeholder="Email"
+                                onChange={handleChangeForm}
+                                {...register("email", { 
+                                    required: "Email is required",
+                                    validate: {
+                                        matchPattern: (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) || "This field must be a valid email",
+                                    }, 
+                                })}
+                                name="email"
+                                id="email"
+                                className="p-2 border border-gray-300 rounded-2xl w-full"
+                            />
+
+                            <br />
+
+                            {errors.email?.message && (
+                                <span className="text-red-500">{errors.email.message}</span>
+                            )}
+
+                        </div>
+
+                        <div>
+
+                            <input
+                                type="text"
+                                placeholder="Company"
+                                onChange={handleChangeForm}
+                                {...register("company", { 
+                                    required: "Company is required", 
+                                })}
+                                name="company"
+                                id="company"
+                                className="p-2 border border-gray-300 rounded-2xl w-full"
+                            ></input>
+
+                            <br />
+
+                            {errors.company?.message && (
+                                <span className="text-red-500">{errors.company.message}</span>
+                            )}
+
+                        </div>
+
+                        <div>
+                            <textarea
+                                placeholder="Message"
+                                onChange={handleChangeForm}
+                                {...register("message", { 
+                                    required: "Message content cannot be empty" 
+                                })}
+                                name="message"
+                                id="message"
+                                className="p-2 border border-gray-300 rounded-2xl w-full"
+                                rows="4"
+                            ></textarea>
+
+                            <br />
+
+                            {errors.message?.message && (
+                                <span className="text-red-500">{errors.message.message}</span>
+                            )}
+
+                        </div>
+
+
 
                         <div className="flex flex-col md:flex-row py-5 md:py-2 space-y-5 w-full md:px-10">
 
@@ -61,14 +188,14 @@ function Contact() {
                                 <div className="flex space-x-2 md:mb:1 py-2 w-full justify-center">
                                 
                                     <label className={`p-3 border border-gray-300 rounded-lg cursor-pointer ${
-                                    selectedProjectOption === 'ios' ? 'bg-gray-800 text-white' : 'bg-white text-gray-700'
+                                    watch("projectType") === 'ios' ? 'bg-gray-800 text-white' : 'bg-white text-gray-700'
                                     }`}>
                                         <input 
                                             type="radio" 
                                             name="projectType" 
                                             value="ios" 
-                                            checked={setSelectedProjectOption === 'ios'}
-                                            onChange={handleChange}
+                                            { ...register("projectType") }
+                                            id="ios"
                                             className="hidden"
                                         />
                                         <span className="px-2">IOS</span>
@@ -76,20 +203,19 @@ function Contact() {
 
                                     
                                     <label className={`p-3 border border-gray-300 rounded-lg cursor-pointer ${
-                                    selectedProjectOption === 'web' ? 'bg-gray-800 text-white' : 'bg-white text-gray-700'
+                                    watch("projectType") === 'web' ? 'bg-gray-800 text-white' : 'bg-white text-gray-700'
                                     }`}>
                                         <input 
                                             type="radio" 
                                             name="projectType" 
                                             value="web" 
-                                            checked={setSelectedProjectOption === 'web'}
-                                            onChange={handleChange}
+                                            { ...register("projectType") }
+                                            id="web"
                                             className="hidden"
                                         />
                                         <span className="px-2">WEB</span>
                                     </label>
                                 </div>
-
                             </div>
                             
 
@@ -102,14 +228,14 @@ function Contact() {
                                 <div className="flex space-x-2 py-2 w-full justify-center">
 
                                     <label className={`p-3 border border-gray-300 rounded-lg cursor-pointer ${
-                                    selectedModalityOption === 'freelance' ? 'bg-gray-800 text-white' : 'bg-white text-gray-700'
+                                    watch("modality") === 'freelance' ? 'bg-gray-800 text-white' : 'bg-white text-gray-700'
                                     }`}>
                                         <input 
                                             type="radio" 
-                                            name="projectType" 
+                                            name="modality" 
                                             value="freelance" 
-                                            checked={setSelectedModalityOption === 'freelance'}
-                                            onChange={handleChangeModality}
+                                            { ...register("modality") }
+                                            id="freelance"
                                             className="hidden"
                                         />
                                         <span className="px-2">Freelance</span>
@@ -117,20 +243,19 @@ function Contact() {
 
                                     
                                     <label className={`p-3 border border-gray-300 rounded-lg cursor-pointer ${
-                                    selectedModalityOption === 'full-time' ? 'bg-gray-800 text-white' : 'bg-white text-gray-700'
+                                    watch("modality") === 'full-time' ? 'bg-gray-800 text-white' : 'bg-white text-gray-700'
                                     }`}>
                                         <input 
                                             type="radio" 
-                                            name="projectType" 
+                                            name="modality" 
                                             value="full-time" 
-                                            checked={setSelectedModalityOption === 'full-time'}
-                                            onChange={handleChangeModality}
+                                            { ...register("modality") }
+                                            id="full-time"                               
                                             className="hidden"
                                         />
                                         <span className="px-2">Full-Time</span>
                                     </label>
                                 </div>
-
                             </div>
 
                         </div>
