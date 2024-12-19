@@ -74,6 +74,7 @@ function Portfolio() {
                                     className="text-white opacity-0 group-hover:opacity-100 group-hover:transition-opacity p-3"
                                     href={project.link}
                                     target="_blank"
+                                    rel="noreferrer"
                                 >
                                     Click me
                                 </a>
