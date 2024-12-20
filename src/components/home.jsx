@@ -65,9 +65,9 @@ function Home() {
                         <TypeAnimation
                             preRenderFirstString={true}
                                 sequence={[
-                                "Software Developer who loves to create amazing things.",
+                                "Software Developer who loves to create amazing Things.",
                                 3000,
-                                "Software Developer who loves to create amazing IOS Apps.",
+                                "Software Developer who loves to create amazing iOS Apps.",
                                 3000,
                                 "Software Developer who loves to create amazing Websites.",
                                 3000,
@@ -156,7 +156,7 @@ function Home() {
                                 <p className="text-gray-600 mt-2">
                                     I develop native applications 
                                     specifically for iOS devices, including iPhones and iPads. 
-                                    With expertise in <strong>Swift</strong>, I create high-performance, user-friendly apps 
+                                    With <strong>Swift</strong> and <strong>SwiftUI</strong> I create high-performance, user-friendly apps 
                                     that leverage the full potential of the iOS ecosystem. 
                                 </p> 
                                 <p className="text-gray-600 mt-3">
