@@ -120,6 +120,7 @@ function Home() {
                 <Technologies />
                 
             </Marquee>
+            
             <div className="flex flex-col md:flex-row md:space-x-8 w-full py-5 md:py-16 bg-[#E5E5E5] items-start">
                 <div className="flex flex-col md:flex-row items-center md:items-start space-x-3 md:w-[45%] border-[#be6700] border-2 py-5 rounded-2xl mx-5 mt-5 mb-16 md:ml-12 bg-[#f6f5de] shadow-2xl h-auto">
                     <img src="paulflores.png" alt="Paul Flores" className="w-36 md:h-36 mt-3 rounded-full border-[#FF6F61] border-2 m-5 md:ml-5"/>
