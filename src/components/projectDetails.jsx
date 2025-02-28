@@ -1,6 +1,6 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { allProjects } from "../data/projectsData"; 
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 
 
 const Projects = () => {
@@ -8,15 +8,16 @@ const Projects = () => {
     const project = allProjects.find(p => p.id === projectId);
     const [activeProjectButton, setActiveProjectButton] = useState(false);
 
-    const checkProjectLink = () => {
-        if (project.link !== null) {
+    const checkProjectLink = useCallback(() => {
+        if (project?.link) {
             setActiveProjectButton(true);
         }
-    };
+    }, [project]);
 
-    React.useEffect(() => {
+    // Llamar a checkProjectLink dentro de useEffect con dependencias correctas
+    useEffect(() => {
         checkProjectLink();
-    }, []);
+    }, [checkProjectLink]);
 
     if (!project) {
         console.log("Project not found");

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { iosProjects, webProjects } from "../data/projectsData";
 
 const Projects = () => {
-    const navigate = useNavigate();
 
     const [activeTab, setActiveTab] = useState("iosProjects");
     const [isTransitioning, setIsTransitioning] = useState(false);
@@ -79,7 +77,7 @@ const Projects = () => {
                                 group-hover:outline 
                                 group-hover:outline-offset-8"
                             >   
-                                <a 
+                                <button 
                                     className="text-white opacity-0 group-hover:opacity-100 group-hover:transition-opacity p-3 cursor-pointer"
                                     onClick={(e) => {
                                         e.preventDefault(); // Evita el comportamiento predeterminado
@@ -87,7 +85,7 @@ const Projects = () => {
                                     }}
                                 >
                                     Click me
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
