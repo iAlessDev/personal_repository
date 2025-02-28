@@ -1,23 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { iosProjects, webProjects } from "../data/projectsData";
 
 const Projects = () => {
-    const webProjects = [
-        { src: "java-migration.png", alt: "Java Migration", text: "Java Migration from 8 to 17 version", link: "/projects" },
-        { src: "SPEI.jpeg", alt: "SPEI Project", text: "Integration of SuperMovil CoDi features", link: "/projects" },
-        { src: "pizza.jpg", alt: "Pizza Project", text: "Pizza API", link: "/projects" },
-        { src: "softelligent-webpage.png", alt: "Softelligent Webpage", text: "Softelligent Webpage", link: "/projects" },
-        { src: "bank-application-logo.jpg", alt: "Bank Application", text: "Bank Full Application", link: "/projects" },
-        { src: "santander-projects.webp", alt: "Santander Projects", text: "Santander Projects", link: "/projects" },
-    ];
+    const navigate = useNavigate();
 
-    const iosProjects = [
-        { src: "pokemon.gif", alt: "Pokemon Project", text: "Who is that pokemon?", link: "/projects" },
-        { src: "calculator.png", alt: "Calculator Project", text: "iOS calculator", link: "/projects" },
-        { src: "husky.png", alt: "Storyboard Project", text: "Sample Storyboard", link: "/projects" },
-    ];
-
-    const [activeTab, setActiveTab] = useState("webProjects");
+    const [activeTab, setActiveTab] = useState("iosProjects");
     const [isTransitioning, setIsTransitioning] = useState(false);
+    const handleProjectClick = (project) => {
+        const url = `/projects/${project.id}`;
+        // Abrir en una nueva pestaña
+        window.open(url, "_blank");
+    };
+    
 
     const handleTabChange = (tab) => {
         if (tab === activeTab) return;
@@ -29,7 +24,7 @@ const Projects = () => {
         }, 300); // Ajusta este tiempo según la duración de la transición
     };
 
-    const projects = activeTab === "webProjects" ? webProjects : iosProjects;
+    const projects = activeTab === "iosProjects" ? iosProjects : webProjects;
 
     return (
         <div className="flex flex-col items-center bg-[#E5E5E5]">
@@ -37,19 +32,19 @@ const Projects = () => {
             <div className="mb-5 space-x-5">
                 <button
                     className={`px-4 py-2 border-b-2 ${
-                        activeTab === "webProjects" ? "border-blue-500 text-blue-500" : "border-transparent text-gray-500 hover:border-gray-300"
-                      } transition`}
-                    onClick={() => handleTabChange("webProjects")}
-                >
-                    Web Projects
-                </button>
-                <button
-                    className={`px-4 py-2 border-b-2 ${
                         activeTab === "iosProjects" ? "border-blue-500 text-blue-500" : "border-transparent text-gray-500 hover:border-gray-300"
                       } transition`}
                     onClick={() => handleTabChange("iosProjects")}
                 >
                     iOS Projects
+                </button>
+                <button
+                    className={`px-4 py-2 border-b-2 ${
+                        activeTab === "webProjects" ? "border-blue-500 text-blue-500" : "border-transparent text-gray-500 hover:border-gray-300"
+                      } transition`}
+                    onClick={() => handleTabChange("webProjects")}
+                >
+                    Web Projects
                 </button>
             </div>
 
@@ -85,10 +80,11 @@ const Projects = () => {
                                 group-hover:outline-offset-8"
                             >   
                                 <a 
-                                    className="text-white opacity-0 group-hover:opacity-100 group-hover:transition-opacity p-3"
-                                    href={project.link}
-                                    target="_blank"
-                                    rel="noreferrer"
+                                    className="text-white opacity-0 group-hover:opacity-100 group-hover:transition-opacity p-3 cursor-pointer"
+                                    onClick={(e) => {
+                                        e.preventDefault(); // Evita el comportamiento predeterminado
+                                        handleProjectClick(project);
+                                    }}
                                 >
                                     Click me
                                 </a>
