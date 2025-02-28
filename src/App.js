@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Portfolio from './components/portfolio.jsx';
 import Home from './components/home.jsx';
 import Navbar from './components/navbar.jsx';
-import Projects from "./components/projects.jsx";
+import Projects from "./components/projectDetails.jsx";
 import Contact from './components/contact.jsx';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
                   <Contact />
                 </div>
               } />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:projectId" element={<Projects />} />
           </Routes>
     </div>
   </Router>
