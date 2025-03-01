@@ -174,7 +174,7 @@ export const iosProjects = [
     },
     { 
         id: "calculator", 
-        src: "calculator.png", 
+        src: "calculatorPhone.png", 
         alt: "Calculator Project", 
         text: "iOS calculator", 
         link: null,

@@ -63,12 +63,16 @@ const Projects = () => {
                             inset-0 
                             bg-black 
                             bg-opacity-0 
+                            rounded-3xl
                             group-hover:bg-opacity-75 
                             transition-all 
                             items-center 
                             justify-center"
                         >
-                            <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity">{project.text}</span>
+                            <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                                {project.text}
+                            </span>
+
                             <div className="
                                 group-hover:border-white 
                                 group-hover:border-2
