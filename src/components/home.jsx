@@ -80,23 +80,23 @@ function Home() {
                     </h2>
 
                     <div className="space-x-6 space-y-4">
-                        <a href="https://github.com/paulfloresdevs">
+                        <a href="https://github.com/iAlessDev">
                             <ion-icon size="large" name="logo-github" ></ion-icon>
                         </a>
 
-                        <a href="https://www.linkedin.com/in/paulfloresdev/">
+                        <a href="https://www.linkedin.com/in/ialessdev/">
                             <ion-icon size="large" name="logo-linkedin"></ion-icon>
                         </a>
                         
-                        <a href="https://instagram.com/paulfloresdev">
+                        <a href="https://www.instagram.com/ialessdev/">
                             <ion-icon size="large" name="logo-instagram"></ion-icon>
                         </a>
                         
-                        <a href="https://x.com/paulfloresdev">
+                        <a href="https://x.com/iAlessDev">
                             <ion-icon size="large" name="logo-twitter"></ion-icon>  
                         </a>
 
-                        <a href="https://www.tiktok.com/@paulfloresdev">
+                        <a href="https://www.tiktok.com/@iAlessDev">
                             <ion-icon size="large" name="logo-tiktok"></ion-icon>
                         </a>                    
                     </div>
