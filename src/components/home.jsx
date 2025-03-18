@@ -156,7 +156,7 @@ function Home() {
                                 <h2 className="text-2xl font-semibold text-gray-800">IOS Development</h2>
                                 <p className="text-gray-600 mt-2">
                                     I develop native applications 
-                                    specifically for iOS devices, including iPhones and iPads. 
+                                    specifically for <strong>iOS devices</strong>, including iPhones and iPads. 
                                     With <strong>Swift</strong> and <strong>SwiftUI</strong> I create high-performance, user-friendly apps 
                                     that leverage the full potential of the iOS ecosystem. 
                                 </p> 
