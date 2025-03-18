@@ -128,7 +128,7 @@ function Home() {
                         <h1 className="text-5xl font-oswald text-center md:text-left">
                             Hey there!
                         </h1>
-                        <p className="text-2xl mt-5 w-full text-[#D1D1D1} font-funnel mb-5 md:mb-0 ">
+                        <p className="text-2xl mt-5 pr-5 w-full text-[#D1D1D1} font-funnel mb-5 md:mb-0 ">
                             I'm Paul Flores, a content creator, speaker and developer specialized in Web and IOS applications
                         </p>
                     </div>
