@@ -25,7 +25,7 @@ export const webProjects = [
 
         usage: "In this project, I successfully migrated a legacy Java application from version 8 to 17, addressing deprecated features, ensuring compatibility with newer versions, and leveraging advanced language features for better performance and maintainability.",
         skills: "Through this migration, I sharpened my skills in upgrading legacy applications, refactoring code for newer versions of Java, and utilizing the latest Java 17 features for enhanced performance and maintainability. I also gained experience in managing dependencies and resolving compatibility issues between old and new code.",
-        technologies: ["Java", "Spring Boot", "Maven", "Java 17", "Spring Security, Spring Data JPA, SQL, REST API"]
+        technologies: ["Java", "Spring Boot", "Maven", "Java 17", "Spring Security", "Spring Data", "JPA", "SQL", "REST API"]
     },
     
     {
@@ -101,11 +101,33 @@ export const webProjects = [
 
 export const iosProjects = [
     {
+        id: "ToDos-App",
+        src: "todos-app.png",
+        alt: "ToDos App",
+        text: "ToDos App",
+        link: "https://github.com/iAlessDev/mvvm-swift",
+        description: 
+        `🧠 The goal? Learn to build scalable, maintainable apps with clear separation of concerns.
+
+        📦 I began by structuring the app using MVVM, splitting the responsibilities across Models, Views, and ViewModels. This allowed for better testing, scalability, and clean, modular code.
+
+        📋 The project consisted of building a fully functional to-do list. I implemented CRUD operations using Core Data, allowing users to create, read, update, delete, archive, and restore tasks seamlessly—all following Clean Architecture principles.
+
+        🖼️ I focused heavily on UI design with SwiftUI, crafting smooth, reactive views using stacks, toolbars, and interactive animations. Every screen was built to feel natural and intuitive.
+
+        🔄 I integrated Combine for reactive programming, ensuring that the app’s state was always in sync with user interactions. ViewModels were enhanced with observable properties, creating a seamless data flow across the app.
+
+        🧱 This project wasn’t just about making a to-do list—it was about mastering the foundations of professional iOS development through a real-world application.`,
+        usage: "This app showcases the application of MVVM and Clean Architecture in iOS using SwiftUI, Core Data, and Combine to manage tasks in a scalable and reactive way.",
+        skills: "I gained hands-on experience in MVVM, Clean Architecture, Core Data integration, and state management with Combine. I also learned how to structure SwiftUI apps with layered architecture for long-term maintainability.",
+        technologies: ["SwiftUI", "MVVM", "Core Data", "Combine", "Clean Architecture", "Swift", "CRUD Operations", "Animations", "State Management"]
+    },
+    {
         id: "Notes-App",
         src: "notes-app.png",
         alt: "Notes App",
         text: "Notes App",
-        link: "https://github.com/paulfloresdevs/Notes-App",
+        link: "https://github.com/iAlessDev/Notes-App",
         description: 
         `📝 I built NotesApp as part of my SwiftUI development journey, focusing on creating a sleek and efficient note-taking application. The goal was to master SwiftUI fundamentals, state management, and UI architecture while developing a practical app.
     
@@ -128,7 +150,7 @@ export const iosProjects = [
         src: "tweets.png", 
         alt: "Tweets App", 
         text: "Tweets Application", 
-        link: "https://github.com/paulfloresdevs/TweetsApp",
+        link: "https://github.com/iAlessDev/TweetsApp",
         description: ` 💡 The journey of building this app was a full-stack challenge that pushed my iOS development skills to the next level! 
 
         📕 I started by designing the entire architecture from scratch, ensuring a seamless experience between frontend and backend. I structured the app using Swift and UIKit, following the MVC pattern for maintainability.
@@ -154,7 +176,7 @@ export const iosProjects = [
         src: "pokemon.png", 
         alt: "Pokemon Project", 
         text: "Who is that pokemon?", 
-        link: "https://github.com/paulfloresdevs/who-is-that-pokemon",
+        link: "https://github.com/iAlessDev/who-is-that-pokemon",
         description: `
         🚀 I created an engaging iOS application using Swift and Storyboards, where users can test their Pokémon knowledge in a fun and interactive way.
 
@@ -193,27 +215,6 @@ export const iosProjects = [
         usage: "This project serves as a demonstration of how to structure and design an intuitive onboarding screen for an iOS application.",
         skills: "I improved my Auto Layout skills, enhanced my ability to design clean UI, and gained deeper knowledge of UIKit components.",
         technologies: ["Swift", "UIKit", "Auto Layout", "Xcode", "Storyboard", "UI Design", "Animations"]
-    },
-    {
-        id: "Facebook-Login-Clone",
-        src: "facebook.png",
-        alt: "Facebook Login UI",
-        text: "Facebook Login UI",
-        link: null,
-        description: 
-        `📱 I recreated the Facebook login screen using SwiftUI, focusing on a pixel-perfect design to match the original UI.
-        
-        🎨 The design includes Facebook’s signature blue background, a bold lowercase logo, and rounded input fields for a sleek, modern feel.
-        
-        🔑 The login form consists of an email and password field with a smooth, interactive UI, ensuring a great user experience.
-        
-        🌎 The layout is fully responsive across different screen sizes, adapting seamlessly from smaller iPhones to larger devices.
-        
-        🚀 SwiftUI’s declarative syntax made it easy to structure the UI efficiently, leveraging VStack and ZStack for proper alignment.`,
-
-        usage: "This project demonstrates how to build a login screen with SwiftUI, handling form inputs while maintaining a clean and responsive design.",
-        skills: "I improved my skills in SwiftUI layout composition, form handling, and UI design principles for mobile applications.",
-        technologies: ["SwiftUI", "iOS", "UI Design", "State Management", "Responsive Layout"]
     }
 ];
 
