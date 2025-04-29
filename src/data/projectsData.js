@@ -102,7 +102,7 @@ export const webProjects = [
 export const iosProjects = [
     {
         id: "ToDos-App",
-        src: "todos-app.png",
+        src: "ToDos-App.png",
         alt: "ToDos App",
         text: "ToDos App",
         link: "https://github.com/iAlessDev/mvvm-swift",
