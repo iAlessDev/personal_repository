@@ -95,6 +95,16 @@ const Projects = () => {
                     </div>
                 ))}
             </div>
+            <div className="mt-10 mb-10 flex justify-center w-full">
+                    <a 
+                        href="https://github.com/iAlessDev" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition"
+                    >
+                        View All
+                    </a>
+                </div>
         </div>
     );
 };
